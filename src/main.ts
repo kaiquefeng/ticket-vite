@@ -1,20 +1,43 @@
-import './style.css';
+import './style.scss';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 
 var wizards = ['Hermione', 'Neville', 'Gandalf'];
 
+const tickets = [
+  {
+    title: 'Nuvem shop Games',
+    description: 'lorem ipsum dolor',
+    offer: '50NUVEMSHOP',
+  },
+  {
+    title: 'PS5 Digital Edition',
+    description: 'lorem ipsum dolor',
+    offer: '50%OFF',
+  },
+  {
+    title: 'Nuvem shop Games',
+    description: 'lorem ipsum dolor',
+    offer: '50NUVEMSHOP',
+  },
+];
+
 app.innerHTML =
-  '<ul>' +
-  wizards
-    .map(function (wizard) {
-      return '<li>' + wizard + '</li>';
+  '<div class="cards-ticket">' +
+  tickets
+    .map(function (ticket) {
+      return (
+        '<div class="ticket"> ' +
+        '<div class="header-ticket">' +
+        ticket.title +
+        '</div>' +
+        '<div class="content-ticket">' +
+        `<p>${ticket.description}</p>` +
+        `<span class="offer">${ticket.offer}</span>` +
+        `<button>Quero</button>` +
+        '</div>' +
+        '</div>'
+      );
     })
     .join('') +
-  '</ul>';
-
-// app.innerHTML = `
-//   <h1>Hello Vite!</h1>
-
-//   <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-// `;
+  '</div>';
